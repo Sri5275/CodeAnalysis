@@ -1,4 +1,5 @@
-﻿using CodeAnalysis.Models;
+﻿using CodeAnalysis.Common.Models;
+using CodeAnalysis.Services;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Octokit;

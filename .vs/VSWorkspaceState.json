@@ -2,7 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\CodeAnalysis",
-    "\\CodeAnalysis\\Controllers"
+    "\\CodeAnalysis\\Controllers",
+    "\\CodeAnalysis\\Repositories"
   ],
   "SelectedNode": "\\CodeAnalysis.sln",
   "PreviewInSolutionExplorer": false
