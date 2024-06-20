@@ -20,6 +20,9 @@ namespace Common.Models
         public string type { get; set; }
 
         public DateTime timestamp { get; set; }
+        public int avgScore { get; set; }
+
+        public Boolean criticalErrors { get; set; } 
 
 
         public Reports()

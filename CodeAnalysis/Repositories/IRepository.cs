@@ -1,4 +1,5 @@
-﻿using Common.Models;
+﻿using CodeAnalysis.Common.Models;
+using Common.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,10 @@ namespace Repository.Repository
         public Task<IActionResult> InsertUser(Users student);
 
         public Task<IActionResult> InsertReports(Reports report);
+
+        public Task<IActionResult> getAllReports(string user_id, string repo_name);
+
+        public Task<IActionResult> getReportById(string id);
 
     }
 }

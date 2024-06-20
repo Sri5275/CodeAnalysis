@@ -1,4 +1,5 @@
-﻿using Common.Models;
+﻿using CodeAnalysis.Common.Models;
+using Common.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -85,6 +86,68 @@ namespace Repository.Repository
             return new OkObjectResult(new { success = true, message = "Report inserted successfully" });
         }
 
+        public async Task<IActionResult> getAllReports(string user_id, string repo_name)
+        {
 
+            try
+            {
+                List<ReportSummary> reportSummaries = new List<ReportSummary>();
+
+
+                QueryDefinition query = new QueryDefinition("SELECT c.id, c.user_id, c.repo_name, c.timestamp, c.avgScore, c.criticalErrors " +
+                                                   "FROM c WHERE c.repo_name = @repo_name AND c.user_id = @user_id AND c.type = 'reports'")
+                                   .WithParameter("@repo_name", repo_name)
+                                   .WithParameter("@user_id", user_id);
+
+                FeedIterator<ReportSummary> iterator = _container.GetItemQueryIterator<ReportSummary>(query);
+
+                while (iterator.HasMoreResults)
+                {
+                    FeedResponse<ReportSummary> res = await iterator.ReadNextAsync();
+                    reportSummaries.AddRange(res.Resource);
+                }
+                if (reportSummaries.Count == 0)
+                {
+                    return new OkObjectResult(new { message = "No reports found. Please enter the valid credentials", success = false });
+                }
+
+                return new OkObjectResult(new { payload=reportSummaries , success=true});
+            }
+            catch (Exception ex)
+            {
+                return new ObjectResult(new { message = ex.Message }) { StatusCode = 500 };
+            }   
+        }
+
+        public async Task<IActionResult> getReportById(string id)
+        {
+            try
+            {
+                ReportContainer reportContainer = null;
+
+                QueryDefinition query = new QueryDefinition("SELECT * FROM c WHERE c.id = @id")
+                                           .WithParameter("@id", id);
+
+                FeedIterator<ReportContainer> iterator = _container.GetItemQueryIterator<ReportContainer>(query);
+
+
+                if (iterator.HasMoreResults)
+                {
+                    FeedResponse<ReportContainer> response = await iterator.ReadNextAsync();
+                    reportContainer = response.FirstOrDefault(); // There should be only one item with the given ID
+                }
+
+                if (reportContainer == null)
+                {
+                    return new NotFoundObjectResult(new { message = "Report not found" });
+                }
+
+                return new OkObjectResult(new { payload = reportContainer, success = true });
+            }
+            catch (Exception ex)
+            {
+                return new ObjectResult(new { message = ex.Message }) { StatusCode = 500 };
+            }
+        }
     }
 }

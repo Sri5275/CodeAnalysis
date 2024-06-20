@@ -1,6 +1,9 @@
-﻿using Common.Models;
+﻿using CodeAnalysis.Common.Models;
+using Common.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Cosmos;
+using Octokit;
 using Repository.Repository;
 using Service.Services;
 
@@ -52,14 +55,22 @@ namespace CodeAnalysis.Controllers
             }
         }
 
-        public static implicit operator DashboardController(CredentialsService v)
+
+        [HttpPost]
+        [Route("getAllReports")]
+        public async Task<IActionResult> getAllReports(string user_id, string repo_name)
         {
-            throw new NotImplementedException();
+            IActionResult actionResult = await _service.getAllReports(user_id, repo_name);
+            return Ok(actionResult);           
         }
 
-
-
-
+        [HttpPost]
+        [Route("getReportById")]
+        public async Task<IActionResult> getReportById(string id)
+        {
+            IActionResult actionResult = await _service.getReportById(id);
+            return Ok(actionResult);
+        }
 
 
     }

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using Octokit;
+using Microsoft.Azure.Cosmos;
+using CodeAnalysis.Common.Models;
 
 
 namespace Service.Services
@@ -118,7 +120,15 @@ namespace Service.Services
         }
 
 
+        public async Task<IActionResult> getAllReports(string user_id, string repo_name)
+        {
+            return await _repos.getAllReports(user_id, repo_name);
+        }
 
+        public async Task<IActionResult> getReportById(string id)
+        {
+            return await _repos.getReportById(id);
+        }
 
     }
 }

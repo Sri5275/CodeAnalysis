@@ -12,9 +12,10 @@ namespace Service.Services
     {
 
         public Task<IActionResult> Login(LoginDTO loginDTO);
-
         public Task<IActionResult> Signup(SignupDTO student);
         public Task<IActionResult> InsertReports(Reports student);
+        public Task<IActionResult> getAllReports(string user_id, string repo_name);
+        public Task<IActionResult> getReportById(string id);
 
     }
 }

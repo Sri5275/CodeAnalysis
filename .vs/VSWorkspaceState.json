@@ -2,9 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\CodeAnalysis",
+    "\\CodeAnalysis\\Common",
+    "\\CodeAnalysis\\Common\\Models",
     "\\CodeAnalysis\\Controllers",
-    "\\CodeAnalysis\\Repositories"
+    "\\CodeAnalysis\\Repositories",
+    "\\CodeAnalysis\\Services"
   ],
-  "SelectedNode": "\\CodeAnalysis.sln",
+  "SelectedNode": "\\CodeAnalysis\\Controllers\\DashboardController.cs",
   "PreviewInSolutionExplorer": false
 }

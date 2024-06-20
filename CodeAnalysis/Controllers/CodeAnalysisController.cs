@@ -1,8 +1,11 @@
 ﻿using CodeAnalysis.Common.Models;
 using CodeAnalysis.Services;
+using Common.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Octokit;
+using Repository.Repository;
+using Service.Services;
 using System;
 using System.Threading.Tasks;
 
@@ -12,6 +15,15 @@ namespace CodeAnalysis.Controllers
     [Route("[controller]")]
     public class CodeAnalysisController : ControllerBase
     {
+
+        private readonly IService _service;
+
+        public CodeAnalysisController(IService service)
+        {
+
+            _service = service;
+        }
+
         [HttpGet]
         [Route("GetName")]
         public string GetSample()
@@ -35,13 +47,13 @@ namespace CodeAnalysis.Controllers
             var gitHubRepository = new GitHubRepository(token);
             var rawContents = await gitHubRepository.DownloadCodeAsync(owner, repo);
 
-            List<SchemaGitHubContent> contents = new List<SchemaGitHubContent>(); 
+            List<SchemaGitHubContent> contents = new List<SchemaGitHubContent>();
 
             StaticAnalysisRules staticAnalyser = new StaticAnalysisRules();
             List<SchemaStaticAnalysisResult> staticAnalysisResult = new List<SchemaStaticAnalysisResult>();
 
 
-            foreach(var content in rawContents)
+            foreach (var content in rawContents)
             {
 
                 //Console.WriteLine($"\nFILE : {content.Name}\nFILE PATH : {content.Path}\nCONTENT : \n{content.Content}");
@@ -50,13 +62,13 @@ namespace CodeAnalysis.Controllers
 
                 contents.Add(new SchemaGitHubContent {
                     name = content.Name,
-                    path = content.Path, 
-                    content = content.Content 
+                    path = content.Path,
+                    content = content.Content
                 });
             }
 
             //ANALYSE THE CODE
-            foreach(SchemaGitHubContent content in contents)
+            foreach (SchemaGitHubContent content in contents)
             {
                 SchemaStaticAnalysisResult result = staticAnalyser.analyseCode(content);
                 //PRINT REPORT
@@ -79,7 +91,7 @@ namespace CodeAnalysis.Controllers
                 staticAnalysisResult.Add(result);
             }
 
-            int avgScore = 0, noOfResults=0;
+            int avgScore = 0, noOfResults = 0;
             bool criticalError = false;
             foreach (var result in staticAnalysisResult)
             {
@@ -87,8 +99,22 @@ namespace CodeAnalysis.Controllers
                 noOfResults++;
                 if (result.HasPrivateKeys) criticalError = true;
             }
-
+            if(noOfResults > 0) 
             avgScore = avgScore / noOfResults;
+
+            Reports report = new Reports
+            {
+                user_id = owner,
+                repo_name = repo,
+                reportsList = staticAnalysisResult,
+                type = "reports",
+                timestamp = DateTime.Now,
+                avgScore = avgScore,
+                criticalErrors = criticalError,
+            };
+
+            IActionResult res = await _service.InsertReports(report);
+            Console.WriteLine(res);
 
             return !(criticalError || avgScore < 60);
 
