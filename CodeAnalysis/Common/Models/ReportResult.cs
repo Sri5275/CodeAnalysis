@@ -27,5 +27,7 @@
         public List<Report> reportsList { get; set; }
         public string type { get; set; }
         public DateTime timestamp { get; set; }
+        public double avgScore { get; set; }
+        public bool criticalErrors { get; set; }
     }
 }

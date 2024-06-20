@@ -20,10 +20,10 @@ namespace Common.Models
         public string type { get; set; }
 
         public DateTime timestamp { get; set; }
-        public int avgScore { get; set; }
 
-        public Boolean criticalErrors { get; set; } 
+        public double avgScore { get; set; }
 
+        public bool  criticalErrors { get; set; } 
 
         public Reports()
         {

@@ -41,22 +41,22 @@ namespace Repository.Repository
                     string storedPassword = existingDocument["password"].ToString();
                     if (hashedPassword == storedPassword)
                     {
-                        return new OkObjectResult(new { message = "successful login ", user_id = existingDocument["user_id"].ToString() });
+                        return new OkObjectResult(new { message = "successful login ", user_id = existingDocument["user_id"].ToString(), success =true });
                         // return new { success = true, user_id = existingDocument["id"].ToString(), user_name = existingDocument["name"].ToString() };
                     }
                     else
                     {
-                        return new OkObjectResult(new { message = "Password incorrect .Please enter correct password" });
+                        return new OkObjectResult(new { message = "Password incorrect .Please enter correct password" , success=false});
                     }
                 }
                 else
                 {
-                    return new OkObjectResult(new { message = "User not found  " });
+                    return new OkObjectResult(new { message = "User not found  ", success = false });
                 }
             }
             catch (Exception ex)
             {
-                return new OkObjectResult(new { message = ex.Message });
+                return new OkObjectResult(new { message = ex.Message , success = false});
             }
         }
 
@@ -71,7 +71,7 @@ namespace Repository.Repository
             if (existingDocument != null)
             {
                 // return new { success = false, message = "UserName already exists." };
-                return new OkObjectResult(new { success = true, user_id = existingDocument.user_id, username = existingDocument.username });
+                return new OkObjectResult(new { success = false, user_id = existingDocument.user_id, username = existingDocument.username });
             }
             else
             {
@@ -115,7 +115,7 @@ namespace Repository.Repository
             }
             catch (Exception ex)
             {
-                return new ObjectResult(new { message = ex.Message }) { StatusCode = 500 };
+                return new ObjectResult(new { message = ex.Message , success = false}) { StatusCode = 500 };
             }   
         }
 
@@ -139,14 +139,14 @@ namespace Repository.Repository
 
                 if (reportContainer == null)
                 {
-                    return new NotFoundObjectResult(new { message = "Report not found" });
+                    return new NotFoundObjectResult(new { message = "Report not found" , success = false});
                 }
 
                 return new OkObjectResult(new { payload = reportContainer, success = true });
             }
             catch (Exception ex)
             {
-                return new ObjectResult(new { message = ex.Message }) { StatusCode = 500 };
+                return new ObjectResult(new { message = ex.Message, success = false }) { StatusCode = 500 };
             }
         }
     }

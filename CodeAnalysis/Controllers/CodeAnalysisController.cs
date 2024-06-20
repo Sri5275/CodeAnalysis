@@ -91,7 +91,8 @@ namespace CodeAnalysis.Controllers
                 staticAnalysisResult.Add(result);
             }
 
-            int avgScore = 0, noOfResults = 0;
+            double avgScore = 0;
+            int noOfResults = 0;
             bool criticalError = false;
             foreach (var result in staticAnalysisResult)
             {
