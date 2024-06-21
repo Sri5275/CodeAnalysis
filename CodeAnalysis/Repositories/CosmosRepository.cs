@@ -25,6 +25,7 @@ namespace Repository.Repository
             _database = _cosmosClient.GetDatabase("coderesultdb");
             _container = _database.GetContainer("codeanalysis");
         }
+
         public async Task<IActionResult> Login(string name, string hashedPassword)
         {
             try
@@ -71,12 +72,12 @@ namespace Repository.Repository
             if (existingDocument != null)
             {
                 // return new { success = false, message = "UserName already exists." };
-                return new OkObjectResult(new { success = false, user_id = existingDocument.user_id, username = existingDocument.username });
+                return new OkObjectResult(new { message="username already taken",success = false, user_id = existingDocument.user_id, username = existingDocument.username });
             }
             else
             {
                 await _container.CreateItemAsync(user);
-                return new OkObjectResult(new { success = true, message = "Account Created." });
+                return new OkObjectResult(new { success = true,user_id = user.user_id ,message = "Account Created." });
             }
         }
 

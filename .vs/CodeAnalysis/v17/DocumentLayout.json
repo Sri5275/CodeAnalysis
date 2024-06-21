@@ -1,7 +1,24 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\nithi\\source\\repos\\Thoparam-sai-nithish\\Devops-CRUD\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BBB7A6CA-3371-47BD-99BA-A1FBF539788C}|CodeAnalysis\\CodeAnalysis.csproj|c:\\users\\nithi\\source\\repos\\thoparam-sai-nithish\\devops-crud\\codeanalysis\\repositories\\cosmosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBB7A6CA-3371-47BD-99BA-A1FBF539788C}|CodeAnalysis\\CodeAnalysis.csproj|solutionrelative:codeanalysis\\repositories\\cosmosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBB7A6CA-3371-47BD-99BA-A1FBF539788C}|CodeAnalysis\\CodeAnalysis.csproj|c:\\users\\nithi\\source\\repos\\thoparam-sai-nithish\\devops-crud\\codeanalysis\\services\\credentialsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBB7A6CA-3371-47BD-99BA-A1FBF539788C}|CodeAnalysis\\CodeAnalysis.csproj|solutionrelative:codeanalysis\\services\\credentialsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBB7A6CA-3371-47BD-99BA-A1FBF539788C}|CodeAnalysis\\CodeAnalysis.csproj|c:\\users\\nithi\\source\\repos\\thoparam-sai-nithish\\devops-crud\\codeanalysis\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBB7A6CA-3371-47BD-99BA-A1FBF539788C}|CodeAnalysis\\CodeAnalysis.csproj|solutionrelative:codeanalysis\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBB7A6CA-3371-47BD-99BA-A1FBF539788C}|CodeAnalysis\\CodeAnalysis.csproj|c:\\users\\nithi\\source\\repos\\thoparam-sai-nithish\\devops-crud\\codeanalysis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBB7A6CA-3371-47BD-99BA-A1FBF539788C}|CodeAnalysis\\CodeAnalysis.csproj|solutionrelative:codeanalysis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +26,62 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CredentialsService.cs",
+              "DocumentMoniker": "C:\\Users\\nithi\\source\\repos\\Thoparam-sai-nithish\\Devops-CRUD\\CodeAnalysis\\Services\\CredentialsService.cs",
+              "RelativeDocumentMoniker": "CodeAnalysis\\Services\\CredentialsService.cs",
+              "ToolTip": "C:\\Users\\nithi\\source\\repos\\Thoparam-sai-nithish\\Devops-CRUD\\CodeAnalysis\\Services\\CredentialsService.cs",
+              "RelativeToolTip": "CodeAnalysis\\Services\\CredentialsService.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAiwHsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T08:23:21.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\nithi\\source\\repos\\Thoparam-sai-nithish\\Devops-CRUD\\CodeAnalysis\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "CodeAnalysis\\Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\nithi\\source\\repos\\Thoparam-sai-nithish\\Devops-CRUD\\CodeAnalysis\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "CodeAnalysis\\Controllers\\DashboardController.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAgwD0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T06:05:51.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\nithi\\source\\repos\\Thoparam-sai-nithish\\Devops-CRUD\\CodeAnalysis\\Program.cs",
+              "RelativeDocumentMoniker": "CodeAnalysis\\Program.cs",
+              "ToolTip": "C:\\Users\\nithi\\source\\repos\\Thoparam-sai-nithish\\Devops-CRUD\\CodeAnalysis\\Program.cs",
+              "RelativeToolTip": "CodeAnalysis\\Program.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAADQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-20T12:58:24.589Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CosmosRepository.cs",
+              "DocumentMoniker": "C:\\Users\\nithi\\source\\repos\\Thoparam-sai-nithish\\Devops-CRUD\\CodeAnalysis\\Repositories\\CosmosRepository.cs",
+              "RelativeDocumentMoniker": "CodeAnalysis\\Repositories\\CosmosRepository.cs",
+              "ToolTip": "C:\\Users\\nithi\\source\\repos\\Thoparam-sai-nithish\\Devops-CRUD\\CodeAnalysis\\Repositories\\CosmosRepository.cs",
+              "RelativeToolTip": "CodeAnalysis\\Repositories\\CosmosRepository.cs",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAowGUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-20T12:52:24.907Z",
+              "EditorCaption": ""
             }
           ]
         }

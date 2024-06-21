@@ -56,7 +56,7 @@ namespace CodeAnalysis.Controllers
         }
 
 
-        [HttpPost]
+        [HttpGet]
         [Route("getAllReports")]
         public async Task<IActionResult> getAllReports(string user_id, string repo_name)
         {
@@ -64,7 +64,7 @@ namespace CodeAnalysis.Controllers
             return Ok(actionResult);           
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("getReportById")]
         public async Task<IActionResult> getReportById(string id)
         {
@@ -76,3 +76,4 @@ namespace CodeAnalysis.Controllers
     }
 
 }
+
