@@ -21,7 +21,7 @@ namespace Common.Models
 
         public DateTime timestamp { get; set; }
 
-        public double avgScore { get; set; }
+        public int avgScore { get; set; }
 
         public bool  criticalErrors { get; set; } 
 

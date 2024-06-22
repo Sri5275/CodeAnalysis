@@ -7,6 +7,6 @@
     "\\CodeAnalysis\\Controllers",
     "\\CodeAnalysis\\Repositories"
   ],
-  "SelectedNode": "\\CodeAnalysis\\Controllers\\DashboardController.cs",
+  "SelectedNode": "\\CodeAnalysis\\Controllers\\CodeAnalysisController.cs",
   "PreviewInSolutionExplorer": false
 }

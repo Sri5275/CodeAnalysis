@@ -44,6 +44,7 @@ namespace CodeAnalysis.Controllers
         [Route("PerfromStaticCodeAnalysis")]
         public async Task<bool> PerfromStaticCodeAnalysis(string owner, string repo, string token)
         {
+            repo = repo.ToLower();
             var gitHubRepository = new GitHubRepository(token);
             var rawContents = await gitHubRepository.DownloadCodeAsync(owner, repo);
 
@@ -91,7 +92,7 @@ namespace CodeAnalysis.Controllers
                 staticAnalysisResult.Add(result);
             }
 
-            double avgScore = 0;
+            int avgScore = 0;
             int noOfResults = 0;
             bool criticalError = false;
             foreach (var result in staticAnalysisResult)
