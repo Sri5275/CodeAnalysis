@@ -1,0 +1,39 @@
+name: Code Analysis
+
+on:
+  push:
+    branches:
+      - '**' # Triggers on push to any branch
+
+jobs:
+  analyze_code:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Extract repository name
+      id: extract_repo_name
+      run: echo "::set-output name=repo_name::${GITHUB_REPOSITORY##*/}"
+
+    - name: Send POST request to code analysis API
+      id: send_request
+      run: |
+        owner=${{ github.repository_owner }}
+        repo=${{ steps.extract_repo_name.outputs.repo_name }}
+        token=${{ secrets.MY_TOKEN }}
+        echo "OWNER: $owner"
+        echo "REPO: $repo"
+        response=$(curl -s -X POST "https://codeanalysis.azurewebsites.net/CodeAnalysis/PerfromStaticCodeAnalysis?owner=$owner&repo=$repo&token=$token")
+        echo "Response: $response"
+        echo "::set-output name=response::$response"
+
+    - name: Check API response
+      run: |
+        if [ "${{ steps.send_request.outputs.response }}" != "true" ]; then
+          echo "API Response is false. Failing the job."
+          exit 1
+        else
+          echo "API Response is true. Job succeeded."
+        fi
