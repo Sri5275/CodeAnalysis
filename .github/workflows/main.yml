@@ -6,7 +6,7 @@ on:
       - '**' # Triggers on push to any branch
 
 jobs:
-  analyze_code:
+  analyze_code: 
     runs-on: ubuntu-latest
 
     steps:
