@@ -25,7 +25,7 @@ jobs:
         token=${{ secrets.MY_TOKEN }}
         echo "OWNER: $owner"
         echo "REPO: $repo"
-        response=$(curl -s -X POST "https://codeanalysis.azurewebsites.net/CodeAnalysis/PerformStaticCodeAnalysis?owner=$owner&repo=$repo&token=$token")
+        response=$(curl -s -X POST "https://codeanalysis.azurewebsites.net/CodeAnalysis/PerfromStaticCodeAnalysis?owner=$owner&repo=$repo&token=$token")
         
         # Check if the curl request was successful
         if [ $? -ne 0 ]; then
